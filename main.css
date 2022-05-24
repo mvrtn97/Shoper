@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+* {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  background-image: linear-gradient(to right, #DECBA4, #3E5151);
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoper {
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  max-width: 500px;
+  border-radius: 10px; 
+  height: 600px;
+  box-shadow: 0px 0px 20px white;
+}
+
+.header h1 {
+  font-family: 'Grape Nuts', cursive;
+  color: rgb(87, 170, 66);
+  font-size: 50px;
+  text-align: center;
+}
+
+.groceriesInput {
+  display: flex;
+  justify-content: center;
+}
