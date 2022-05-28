@@ -33,9 +33,50 @@ body {
   color: rgb(87, 170, 66);
   font-size: 50px;
   text-align: center;
+  padding: 20px;
 }
 
 .groceriesInput {
   display: flex;
   justify-content: center;
+  padding: 10px;
+}
+
+#allItems li {
+  text-align: center;
+  padding: 4px;
+  list-style: none;
+}
+
+#addBtn {
+  text-decoration: none;
+  border: 1px solid rgb(26, 92, 26);
+  position: relative;
+  overflow: hidden;
+}
+
+#addBtn:hover {
+  background:rgb(127, 255, 95);
+  color: white;
+  box-shadow: 1px 1px 10px 6px rgba(61, 170, 46, 0.4);
+}
+
+#addBtn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    20deg,
+    transparent,
+    rgba(156, 255, 110, 0.4),
+    transparent
+  );
+  transition: all 350ms;
+}
+
+#addBtn:hover:before {
+  left: 100%;
 }
