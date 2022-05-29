@@ -35,9 +35,8 @@ function addItem() {
       let newItem = new Item(itemName=input, count=1);
       groceries.push(newItem);
     }
-     reloadDisplay();
   }
-
+  reloadDisplay();
 }
 
 function reloadDisplay(){
@@ -48,14 +47,14 @@ function reloadDisplay(){
   editBtn.innerHTML = "edit";
   checkBtn.type = "checkbox";
 
-  list.innerText = ''
+  list.innerText = '';
   groceries.forEach(item => {
-    const newLi = document.createElement("li");
-    newLi.innerHTML += item.itemName + " x" + item.count;
+    let newLi = document.createElement("li");
+    newLi.innerHTML = item.itemName + " x" + item.count;
     list.insertAdjacentElement("beforeend", newLi);
-    newLi.appendChild(delBtn);
-    newLi.appendChild(editBtn);
-    newLi.appendChild(checkBtn);
+    newLi.append(delBtn);
+    newLi.append(editBtn);
+    newLi.append(checkBtn);
   })
   inputElement.value = "";
 }
