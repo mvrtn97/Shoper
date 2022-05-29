@@ -39,24 +39,53 @@ function addItem() {
   reloadDisplay();
 }
 
+
+
 function reloadDisplay(){
-  let delBtn = document.createElement('button');
-  let editBtn = document.createElement('button');
-  let checkBtn = document.createElement('input');
-  delBtn.innerHTML = "-";
-  editBtn.innerHTML = "edit";
-  checkBtn.type = "checkbox";
 
   list.innerText = '';
   groceries.forEach(item => {
     let newLi = document.createElement("li");
+    let delBtn = document.createElement('button');
+    let editBtn = document.createElement('button');
+    let checkBtn = document.createElement('input');
+
+    function append(item) {
+      item.append(delBtn);
+      item.append(editBtn);
+      item.append(checkBtn);
+    }
+
+    delBtn.innerHTML = "-";
+    delBtn.className = "delBtn";
+
+    editBtn.innerHTML = "edit";
+    editBtn.className = "editBtn";
+
+    checkBtn.type = "checkbox";
+    checkBtn.className = "checkBtn";
+
     newLi.innerHTML = item.itemName + " x" + item.count;
     list.insertAdjacentElement("beforeend", newLi);
-    newLi.append(delBtn);
-    newLi.append(editBtn);
-    newLi.append(checkBtn);
+
+    append(newLi);
+
+    delBtn.addEventListener('click', function(e){
+      let itemToRemove = e.target.closest('li');  
+      if(item.count > 1) {
+        item.count -= 1; 
+        newLi.innerHTML = item.itemName + " x" + item.count;
+        append(newLi);
+        isProduct = true; 
+      }
+      else{
+        list.removeChild(itemToRemove);
+        isProduct = false;
+      }
+    })
   })
   inputElement.value = "";
+
 }
 
 addBtn.addEventListener('click', addItem);
